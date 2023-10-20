@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class Post {
   constructor(data) {
     this.id = data._id || data.id
@@ -21,13 +23,34 @@ export class Post {
       </div>
       <div class="p-2">
         <h5>${this.postTitle}</h5>
+      ${this.isImg}
+    
         <p class="small-text">${this.postBody}</p>
+        ${this.computeDeleteButton}
         <i class="mdi mdi-heart"></i>
         <i class="mdi mdi-heart-outline"></i>
         <i class="mdi mdi-heart-broken"></i>
         <i class="mdi mdi-heart-broken-outline"></i>
       </div>
+
     </div>`
+  }
+  get isImg() {
+    if (!this.imgUrl) {
+      return ''
+    }
+    return `<img src="${this.imgUrl}" alt="${this.postTitle}" class="img-fluid">
+  `
+  }
+
+  get computeDeleteButton() {
+    if (AppState.account?.id != this.creatorId) {
+      return ''
+    }
+    return `
+  <button><i class="mdi mdi-delete"></i></button>
+
+  `
   }
 }
 

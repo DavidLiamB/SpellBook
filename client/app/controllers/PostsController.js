@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { postsService } from "../services/PostsService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
@@ -11,7 +12,7 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     console.log('??????');
-    this.getPosts()
+    AppState.on('account', this.getPosts)
     AppState.on('posts', _drawPosts)
   }
 
@@ -22,6 +23,20 @@ export class PostsController {
     } catch (error) {
       Pop.error(error)
       console.error(error)
+    }
+  }
+
+  async createPost(event) {
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formData = getFormData(form)
+      const post = await postsService.createPost(formData)
+      form.reset()
+    } catch (error) {
+      Pop.error(error)
+      console.error(error)
+
     }
   }
 }
