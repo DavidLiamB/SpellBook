@@ -4,7 +4,7 @@ import { api } from "./AxiosService.js"
 
 class PostsService {
   async createPost(formData) {
-    const res = await api.post(formData)
+    const res = await api.post('api/posts', formData)
     const post = new Post(res.data)
     AppState.posts.push(post)
     AppState.emit('posts')
