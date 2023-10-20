@@ -31,7 +31,6 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <!-- NAVLINKS -->
-          <a href="#/about" class="nav-link">About</a>
         </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -39,44 +38,21 @@
   </header>
 
   <!-- SECTION -->
-  <main>
+  <main class="container-fluid">
 
-    <section id="auth-template">
-      <!-- TODO REMOVE THE AUTH TEMPLATE ONCE YOU VERIFY YOUR AUTH SETTINGS -->
-      <div class="container-fluid">
-        <div class="row my-3">
-          <div class="col-lg-5" id="auth-settings">
-            <div class="card p-2 skeleton-loader">
-              <div class="card-title p-2">
-                <div class="d-flex align-items-center">
-                  <div class="skeleton-loader avatar"></div>
-                  <div class="skeleton-loader text mx-2"></div>
-                </div>
-              </div>
-              <div class="card-body border-top">
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="router-view">
+    <section id="router-view" class="row">
       <!-- primary viewport -->
+      <div class="col-2"></div>
+      <div class="col-8 bg-dark post-div">
+        <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim iusto cum molestias, vitae dolores facere
+          eveniet eum autem veritatis ducimus repellat laborum exercitationem assumenda sit numquam odit officia
+          aliquam. Ratione!</P>
+      </div>
+      <div class="col-2"></div>
     </section>
 
 
   </main>
-
-  <!-- SECTION -->
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
-    </div>
-  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
