@@ -35,23 +35,15 @@ export class PostsController {
       console.error(error)
     }
   }
-  getCategory(name) {
-    try {
-      console.log('??');
-      return postsService.getCategory(name)
-    } catch (error) {
-      Pop.error(error)
-      console.error(error)
-    }
-  }
 
   async createPost(event) {
     try {
+      debugger
       event.preventDefault()
       const form = event.target
       let formData = getFormData(form)
       // @ts-ignore
-      formData.categoryId = this.getCategory(formData.categoryName)
+      formData.categoryId = await postsService.getCategory(formData.categoryName)
       const post = await postsService.createPost(formData)
       form.reset()
     } catch (error) {
