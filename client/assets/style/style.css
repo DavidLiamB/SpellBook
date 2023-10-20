@@ -22,7 +22,7 @@
 }
 
 .post {
-  box-shadow: 0px 2px 6px black;
+  box-shadow: 0px 2px 6px white;
 }
 
 /* .side-background {
@@ -46,7 +46,7 @@
 }
 
 .main-background {
-  background-color: #961796;
+  background-color: black;
 }
 
 /* SECTION scrollbar */
