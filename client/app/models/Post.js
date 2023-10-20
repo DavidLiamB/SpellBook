@@ -31,10 +31,10 @@ export class Post {
         
         <div>
         
-        <i class="mdi mdi-heart text-danger"></i>
-        <i class="mdi mdi-heart-outline text-danger"></i>
-        <i class="mdi mdi-heart-broken text-danger"></i>
-        <i class="mdi mdi-heart-broken-outline text-danger"></i>
+        <i class="mdi mdi-heart text-purple"></i>
+        <i class="mdi mdi-heart-outline text-purple"></i>
+        <i class="mdi mdi-heart-broken text-purple"></i>
+        <i class="mdi mdi-heart-broken-outline text-purple"></i>
         </div>
         <div>
         ${this.computeDeleteButton}
@@ -60,7 +60,7 @@ export class Post {
       return ''
     }
     return `
-  <button onclick="app.PostsController.annihilatePost('${this.id}')" class="btn btn-danger rounded-circle"><i class="mdi mdi-delete"></i></button>
+  <button onclick="app.PostsController.annihilatePost('${this.id}')" class="btn button-purple text-white rounded-circle"><i class="mdi mdi-delete"></i></button>
 
   `
   }
