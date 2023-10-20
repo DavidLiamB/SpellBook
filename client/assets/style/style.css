@@ -1,4 +1,9 @@
 /* BASIC STYLES HERE */
 .post-div {
-  height: 100vh;
+  height: 88vh;
+  /* background-color: #7400aa; */
+}
+
+.bad-header {
+  height: 11hv;
 }
