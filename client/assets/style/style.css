@@ -4,6 +4,7 @@
   /* background-color: #7400aa; */
   overflow: scroll;
   overflow-x: hidden;
+
 }
 
 .bad-header {
@@ -49,9 +50,18 @@
   background-color: #424242;
 }
 
+.button-purple {
+  background-color: #7400aa;
+}
+
+.text-purple {
+  color: #7400aa;
+}
+
 /* SECTION scrollbar */
 .post-div::-webkit-scrollbar {
   border-radius: 0 5px 5px 0;
+  display: none;
 }
 
 .post-div::-webkit-scrollbar-button {
