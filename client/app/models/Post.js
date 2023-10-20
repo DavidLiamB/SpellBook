@@ -15,9 +15,9 @@ export class Post {
 
   get cardTemplate() {
     return `
-    <div class="col-12 p-3 d-flex shadow post">
+    <div class="col-12 post-background p-3 mb-3 d-flex post rounded">
       <div class="p-2">
-        <img class="profile-img rounded-circle"
+        <img class="profile-img  rounded-circle"
           src="${this.creator?.picture}"
           alt="${this.creator?.name}">
         <p>${this.creator?.name}</p>
@@ -27,11 +27,22 @@ export class Post {
       ${this.isImg}
     
         <p class="small-text">${this.postBody}</p>
+        <div class="d-flex justify-content-between">
+        
+        <div>
+        
+        <i class="mdi mdi-heart text-danger"></i>
+        <i class="mdi mdi-heart-outline text-danger"></i>
+        <i class="mdi mdi-heart-broken text-danger"></i>
+        <i class="mdi mdi-heart-broken-outline text-danger"></i>
+        </div>
+        <div>
         ${this.computeDeleteButton}
-        <i class="mdi mdi-heart"></i>
-        <i class="mdi mdi-heart-outline"></i>
-        <i class="mdi mdi-heart-broken"></i>
-        <i class="mdi mdi-heart-broken-outline"></i>
+        </div>
+        </div>
+        <div>
+        <p type="button" class="mb-0">comments...</p>
+        </div>
       </div>
 
     </div>`
