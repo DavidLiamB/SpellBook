@@ -6,6 +6,7 @@ export class Post {
     this.postTitle = data.postTitle
     this.postBody = data.postBody
     this.creatorId = data.creatorId
+    this.categoryId = data.categoryId
     this.createdAt = new Date(data.createdAt)
     this.createdAt = data.createdAt
     this.creator = data.creator || null
