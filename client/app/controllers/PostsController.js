@@ -39,4 +39,21 @@ export class PostsController {
 
     }
   }
+
+  async annihilatePost(postId) {
+    try {
+      const wantsToDeletePost = await Pop.confirm()
+      if (!wantsToDeletePost) {
+        return
+      }
+
+      await postsService.annihilatePost(postId)
+
+      Pop.error('Successfully deleted')
+    } catch (error) {
+      Pop.error
+      console.error(error)
+    }
+
+  }
 }

@@ -48,7 +48,7 @@ export class Post {
       return ''
     }
     return `
-  <button onclick="app.PostController.destroy" class="btn btn-danger rounded-circle"><i class="mdi mdi-delete"></i></button>
+  <button onclick="app.PostsController.annihilatePost('${this.id}')" class="btn btn-danger rounded-circle"><i class="mdi mdi-delete"></i></button>
 
   `
   }
