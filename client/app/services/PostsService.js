@@ -1,8 +1,17 @@
 import { AppState } from "../AppState.js"
+import { Category } from "../models/Category.js"
 import { Post } from "../models/Post.js"
 import { api } from "./AxiosService.js"
 
 class PostsService {
+  getCategory(name) {
+    return AppState.categories.find(category => category.name == name)
+  }
+  async getCategories() {
+    const res = await api.get('api/categories')
+    const categories = res.data.map(pojo => new Category(pojo))
+    AppState.categories.push(categories)
+  }
   async annihilatePost(postId) {
     await api.delete(`api/posts/${postId}`)
     const postIndex = AppState.posts.findIndex(post => post.id == postId)

@@ -12,6 +12,7 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     console.log('??????');
+    this.getCategories()
     AppState.on('account', this.getPosts)
     AppState.on('posts', _drawPosts)
   }
@@ -20,6 +21,24 @@ export class PostsController {
     try {
       console.log('??');
       await postsService.getPosts()
+    } catch (error) {
+      Pop.error(error)
+      console.error(error)
+    }
+  }
+  async getCategories() {
+    try {
+      console.log('??');
+      await postsService.getCategories()
+    } catch (error) {
+      Pop.error(error)
+      console.error(error)
+    }
+  }
+  getCategory(name) {
+    try {
+      console.log('??');
+      return postsService.getCategory(name)
     } catch (error) {
       Pop.error(error)
       console.error(error)
