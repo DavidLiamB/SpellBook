@@ -6,7 +6,7 @@ export const PostSchema = new Schema(
         postTitle: { type: String, required: true, maxLength: 50 },
         imgUrl: { type: String, maxLength: 500 },
         creatorId: { type: Schema.Types.ObjectId, required: true, ref: "Account" },
-        categoryId: { type: Schema.Types.ObjectId, ref: "Category" },
+        categoryId: { type: Schema.Types.ObjectId, required: true, ref: "Category" },
         category2Id: { type: Schema.Types.ObjectId, ref: "Category2" }
     },
     {

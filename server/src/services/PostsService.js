@@ -20,6 +20,8 @@ class PostsService {
     }
     async createPost(body) {
         const newPost = await dbContext.Posts.create(body)
+        await newPost.populate('creator', '-email -subs')
+        await newPost.populate('likes')
         return newPost
     }
 
