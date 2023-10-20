@@ -49,7 +49,7 @@ export class PostsController {
     try {
       event.preventDefault()
       const form = event.target
-      const formData = getFormData(form)
+      let formData = getFormData(form)
       // @ts-ignore
       formData.categoryId = this.getCategory(formData.categoryName)
       const post = await postsService.createPost(formData)
