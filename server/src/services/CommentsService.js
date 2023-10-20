@@ -1,7 +1,9 @@
 import { dbContext } from "../db/DbContext.js"
-import { BadRequest } from "../utils/Errors.js"
+import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class CommentsService {
+
+
     async createComments(comment, postId) {
         const postCheck = await dbContext.Posts.findById(postId)
         if (!postCheck) {
@@ -21,7 +23,32 @@ class CommentsService {
 
         return comments
     }
+    async removeComments(commentId, userId) {
+        const removedComment = await dbContext.Comments.findById(commentId)
+        if (!removedComment) {
+            throw new BadRequest(`nothing with ID ${commentId}`)
+        }
+        if (removedComment.creatorId != userId) {
 
+            throw new Forbidden('You cant do that')
+        }
+
+        await removedComment.remove()
+        return 'comment removed'
+
+    }
+
+    async updateComment(commentId, userId, commentData) {
+        const commentToBeUpdated = await dbContext.Comments.findById(commentId)
+        if (!commentToBeUpdated) {
+            throw new BadRequest(`Invalid ID ${commentId}`)
+        }
+
+        commentToBeUpdated.postBody = commentData.body || commentToBeUpdated
+
+        return commentToBeUpdated
+
+    }
 }
 
 export const commentsService = new CommentsService()
