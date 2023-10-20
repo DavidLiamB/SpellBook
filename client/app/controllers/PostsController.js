@@ -50,7 +50,8 @@ export class PostsController {
       event.preventDefault()
       const form = event.target
       const formData = getFormData(form)
-      formData.categoryId = this.getCategory(formData.categoryId)
+      // @ts-ignore
+      formData.categoryId = this.getCategory(formData.categoryName)
       const post = await postsService.createPost(formData)
       form.reset()
     } catch (error) {
