@@ -5,6 +5,7 @@ import { PostSchema } from '../models/Post.js';
 import { LikeSchema } from '../models/Like.js';
 import { CatagorySchema } from '../models/Category.js';
 import { CommentSchema } from '../models/Comment.js';
+import { DislikeSchema } from '../models/Dislike.js';
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
@@ -17,6 +18,8 @@ class DbContext {
   Categories = mongoose.model('Category', CatagorySchema)
 
   Comments = mongoose.model('Comment', CommentSchema)
+
+  Dislikes = mongoose.model('Dislike', DislikeSchema)
 }
 
 export const dbContext = new DbContext()
