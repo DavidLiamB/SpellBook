@@ -17,39 +17,39 @@
 
 <body>
   <!-- SECTION -->
-  <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
-      <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">SpellBook</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!-- NAVLINKS -->
+  <header class="sticky-top border-bottom">
+    <div class="container-fluid">
+      <section class="row side-background">
+        <div class="col-12 text-center text-white p-3">
+          <h1>SpellBook</h1>
         </div>
-      </div>
-      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-    </nav>
+      </section>
+    </div>
+
+
   </header>
 
   <!-- SECTION -->
-  <main class="container-fluid">
+  <main class="container-fluid side-background">
 
     <section id="router-view" class="row">
       <!-- primary viewport -->
-      <div class="col-2 p-3">
-        <div class="card p-2 text-center">
-          sort
+      <div class="col-2 side-background border-end rounded p-3 d-flex justify-content-center text-white">
+        <div class="dropdown">
+          <button class="btn post post-background dropdown-toggle text-white" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </div>
       </div>
-      <div class="col-8  post-div">
-        <section id="post-area" class="row">
-          <!-- <div class="col-12 p-3 d-flex shadow post">
+      <div class="col-8 main-background rounded text-white post-div">
+        <section id="post-area" class="row p-3">
+          <!-- <div class="col-12 p-3 d-flex post rounded">
             <div class="p-2">
               <img class="profile-img rounded-circle"
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D"
@@ -71,10 +71,13 @@
           </div> -->
         </section>
       </div>
-      <div class="col-2 p-3">
-        <div class="card p-2 text-center">
-          profile
-          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <div class="col-2 p-3 border-start rounded side-background text-white">
+        <div class="card p-2 main-background post text-center">
+          <div class="flex-column align-items-center d-flex p-3" id="authstate">
+
+          </div>
+          <button type="button" class="btn post-background text-white" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
             Post<i class="mdi mdi-plus"></i>
           </button>
         </div>

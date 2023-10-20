@@ -2,6 +2,8 @@
 .post-div {
   height: 88vh;
   /* background-color: #7400aa; */
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .bad-header {
@@ -20,5 +22,60 @@
 }
 
 .post {
-  border-bottom: 2px solid #7400aa;
+  box-shadow: 0px 2px 6px black;
+}
+
+/* .side-background {
+  background-color: #28104E;
+}
+
+.post-background {
+  background-color: #9754CB;
+}
+
+.main-background {
+  background-color: #6237A0;
+} */
+
+.side-background {
+  background-color: #400740;
+}
+
+.post-background {
+  background-color: #7a147a;
+}
+
+.main-background {
+  background-color: #961796;
+}
+
+/* SECTION scrollbar */
+.post-div::-webkit-scrollbar {
+  border-radius: 0 5px 5px 0;
+}
+
+.post-div::-webkit-scrollbar-button {
+  display: none;
+}
+
+.post-div::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 0 5px 5px 0;
+}
+
+
+.post-div::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+
+.post-div::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* !SECTION */
+
+body {
+  overflow: hidden;
 }
