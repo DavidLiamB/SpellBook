@@ -15,7 +15,7 @@ class PostsService {
         return 'post destroyed'
     }
     async getAllPosts() {
-        const posts = await dbContext.Posts.find()
+        const posts = await dbContext.Posts.find().populate('creator', '-email -subs').populate('likes')
         return posts
     }
     async createPost(body) {

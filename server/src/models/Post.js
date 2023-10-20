@@ -13,3 +13,17 @@ export const PostSchema = new Schema(
         timestamps: true, toJSON: { virtuals: true }
     }
 )
+
+PostSchema.virtual('creator', {
+    localField: 'creatorId',
+    foreignField: '_id',
+    justOne: true,
+    ref: 'Account'
+})
+
+PostSchema.virtual('likes', {
+    count: true,
+    localField: '_id',
+    foreignField: 'postId',
+    ref: 'Like'
+})
