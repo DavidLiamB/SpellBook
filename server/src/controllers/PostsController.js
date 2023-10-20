@@ -10,6 +10,7 @@ export class PostsController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createPost)
             .delete('/:postId', this.destroyPost)
+            .put('/:postId', this.editPost)
     }
 
     async getAllPosts(req, res, next) {
@@ -42,6 +43,18 @@ export class PostsController extends BaseController {
         } catch (error) {
             next(error)
         }
+    }
+
+    async editPost(req, res, next) {
+        try {
+
+            const editedPost = await postService.editPost(req.userInfo.id, req.params.postId, req.body)
+            res.send(editedPost)
+
+        } catch (error) {
+            next(error)
+        }
+
     }
 
 }
