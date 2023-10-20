@@ -22,7 +22,7 @@
 }
 
 .post {
-  box-shadow: 0px 2px 6px white;
+  box-shadow: 0px 2px 6px black;
 }
 
 /* .side-background {
@@ -38,15 +38,15 @@
 } */
 
 .side-background {
-  background-color: #400740;
+  background-color: #212121;
 }
 
 .post-background {
-  background-color: #7a147a;
+  background-color: #303030;
 }
 
 .main-background {
-  background-color: black;
+  background-color: #424242;
 }
 
 /* SECTION scrollbar */
