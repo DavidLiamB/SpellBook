@@ -9,7 +9,7 @@ export class DisDislikesController extends BaseController {
             // .get('', this.getDislike)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createDislike)
-            .delete('/:DislikeId', this.destroyDislike)
+            .delete('/:dislikeId', this.destroyDislike)
     }
     async getDislike(req, res, next) {
         try {
