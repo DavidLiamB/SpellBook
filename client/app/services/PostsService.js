@@ -26,7 +26,7 @@ class PostsService {
   async createPost(formData) {
     const res = await api.post('api/posts', formData)
     const post = new Post(res.data)
-    AppState.posts.push(post)
+    AppState.posts.splice(0, 0, post)
     AppState.emit('posts')
   }
   async getPosts() {
