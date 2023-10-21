@@ -10,12 +10,13 @@ class CommentsService {
             throw new BadRequest('You can not do this.')
         }
         const comments = await dbContext.Comments.create(comment)
+        await comments.populate('creator', '-email -subs')
 
         return comments
     }
 
     async getComments(postId) {
-        const comments = await dbContext.Comments.find({ postId: postId })
+        const comments = await dbContext.Comments.find({ postId: postId }).populate('creator', '-email -subs')
         if (!comments[0]) {
             return `no comments under this post ${postId}`
         }
