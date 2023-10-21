@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { Category } from "../models/Category.js";
 import { postsService } from "../services/PostsService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
@@ -9,12 +10,18 @@ function _drawPosts() {
   AppState.posts.forEach(post => content += post.cardTemplate)
   setHTML('post-area', content)
 }
+function _drawCategory() {
+  let content = ''
+  AppState.categories.forEach(Category => content += Category.categoryButtonTemplate)
+  setHTML('category-buttons', content)
+}
 export class PostsController {
   constructor() {
     console.log('??????');
     this.getCategories()
     AppState.on('account', this.getPosts)
     AppState.on('posts', _drawPosts)
+    AppState.on('categories', _drawCategory)
   }
 
   async getPosts() {
