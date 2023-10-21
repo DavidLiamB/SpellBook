@@ -6,7 +6,7 @@ export class Category {
 
   get categoryButtonTemplate() {
     return `
-    <button class="dropdown-item text-white" type="button" onclick="app.WizardsController.drawCategory('${this.id}')">${this.name}</button>
+    <button class="dropdown-item text-white" type="button" onclick="app.PostsController.drawCategory('${this.id}')">${this.name}</button>
     `
   }
 }

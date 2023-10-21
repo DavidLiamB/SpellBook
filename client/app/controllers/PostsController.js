@@ -5,9 +5,19 @@ import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
-function _drawPosts() {
+// function _drawPosts() {
+//   let content = ''
+//   AppState.posts.forEach(post => content += post.cardTemplate)
+//   setHTML('post-area', content)
+// }
+function _drawPosts(categoryId) {
   let content = ''
-  AppState.posts.forEach(post => content += post.cardTemplate)
+  let posts = AppState.posts
+  if (categoryId) {
+    console.log(categoryId);
+    posts.filter(post => post.categoryId == categoryId)
+  }
+  posts.forEach(post => content += post.cardTemplate)
   setHTML('post-area', content)
 }
 function _drawCategory() {
@@ -33,6 +43,10 @@ export class PostsController {
       Pop.error(error)
       console.error(error)
     }
+  }
+
+  drawCategory(categoryId) {
+    _drawPosts(categoryId)
   }
   async getCategories() {
     try {

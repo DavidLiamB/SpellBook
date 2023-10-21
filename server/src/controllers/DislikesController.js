@@ -2,7 +2,7 @@ import { Auth0Provider } from "@bcwdev/auth0provider";
 import BaseController from "../utils/BaseController.js";
 import { dislikesService } from "../services/DislikesService.js";
 
-export class DisDislikesController extends BaseController {
+export class DislikesController extends BaseController {
     constructor() {
         super('api/Dislikes')
         this.router

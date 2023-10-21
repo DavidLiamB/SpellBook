@@ -5,7 +5,7 @@ import { Pop } from "../utils/Pop.js"
 export class LikesController {
   constructor() {
     this.getLikes()
-    AppState.on('likes', this.getLikes)
+    AppState.on('account', this.getLikes)
   }
 
   async getLikes() {
