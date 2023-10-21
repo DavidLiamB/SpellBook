@@ -43,7 +43,9 @@ export class Post {
         </div>
         </div>
         <div>
-        <p type="button" class="mb-0">comments...</p>
+        <div id="commentsGoHere${this.id}">
+        <p type="button"  onclick="app.CommentsController.getCommentById('${this.id}')" class="mb-0">comments...</p>
+        </div>
         </div>
       </div>
 

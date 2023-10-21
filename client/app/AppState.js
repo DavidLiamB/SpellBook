@@ -15,6 +15,7 @@ class ObservableAppState extends EventEmitter {
 
   posts = []
 
+  activeComments = []
 
   categories = []
   likes = []
