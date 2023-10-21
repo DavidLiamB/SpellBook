@@ -17,6 +17,12 @@ class ObservableAppState extends EventEmitter {
 
 
   categories = []
+  wizards = []
+
+  spells = []
+
+  questions = []
+
 
   // Used to load initial data
   init() {

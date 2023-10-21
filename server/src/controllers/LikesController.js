@@ -6,7 +6,7 @@ export class LikesController extends BaseController {
     constructor() {
         super('api/likes')
         this.router
-            // .get('', this.getLike)
+            .get('', this.getLike)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createLike)
             .delete('/:likeId', this.destroyLike)
