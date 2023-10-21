@@ -35,8 +35,8 @@ export class Post {
         
         <div>
         ${this.seelike}
-        <i class="mdi mdi-heart-broken text-purple"></i>
-        <i class="mdi mdi-heart-broken-outline text-purple"></i>
+        <!-- <i class="mdi mdi-heart-broken"></i>
+              <i class="mdi mdi-heart-broken-outline"></i> -->
         </div>
         <div>
         ${this.computeDeleteButton}

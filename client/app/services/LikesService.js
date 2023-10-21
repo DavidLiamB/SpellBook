@@ -14,6 +14,7 @@ class LikesService {
     const res = await api.post('api/likes', body)
     const like = new Like(res.data)
     AppState.likes.push(like)
+    AppState.emit('posts')
   }
   async getLikes() {
     const res = await api.get('api/likes')
