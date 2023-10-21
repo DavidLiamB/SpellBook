@@ -38,13 +38,14 @@ export class PostsController {
 
   async createPost(event) {
     try {
-      debugger
       event.preventDefault()
       const form = event.target
       let formData = getFormData(form)
       // @ts-ignore
       formData.categoryId = await postsService.getCategory(formData.categoryName)
       const post = await postsService.createPost(formData)
+      // @ts-ignore
+      bootstrap.Modal.getOrCreateInstance('#exampleModal').hide()
       form.reset()
     } catch (error) {
       Pop.error(error)
