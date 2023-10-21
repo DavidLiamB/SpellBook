@@ -14,8 +14,9 @@ function _drawPosts(categoryId) {
   let content = ''
   let posts = AppState.posts
   if (categoryId) {
-    console.log(categoryId);
-    posts.filter(post => post.categoryId == categoryId)
+    const postsArr = posts.filter(p =>
+      p.categoryId == categoryId)
+    console.log('filtered posts', postsArr);
   }
   posts.forEach(post => content += post.cardTemplate)
   setHTML('post-area', content)
