@@ -9,10 +9,10 @@ The first thing you will need to provide is in the `.env` file. You will need to
 ```
 NODE_ENV=dev
 PORT=
-CONNECTION_STRING=
-AUTH_DOMAIN=
-AUTH_AUDIENCE=
-AUTH_CLIENT_ID=
+CONNECTION_STRING=mongodb+srv://SomeRandomGuy:WEF94Kjrd0ocfYUe@dlbcluster0.ynlhx7c.mongodb.net/SpellBook?retryWrites=true&w=majority
+AUTH_DOMAIN=liamlogin.us.auth0.com
+AUTH_AUDIENCE=https://Liamthestudent.com
+AUTH_CLIENT_ID=krU2ZyvH8j9MfjtKiqefSdLAftyTVZvJ
 ```
 
 ### MVC - Controllers
