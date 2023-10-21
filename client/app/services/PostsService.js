@@ -32,6 +32,7 @@ class PostsService {
   async getPosts() {
     const res = await api.get('api/posts')
     const posts = res.data.map(pojo => new Post(pojo))
+    console.log(res.data);
     AppState.posts = posts
   }
 

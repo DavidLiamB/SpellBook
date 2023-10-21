@@ -9,6 +9,7 @@ export class Post {
     this.categoryId = data.categoryId
     this.createdAt = new Date(data.createdAt)
     this.createdAt = data.createdAt
+    this.likes = data.likes
     this.creator = data.creator || null
     this.imgUrl = data.imgUrl || null
   }
@@ -31,8 +32,6 @@ export class Post {
         
         <div>
         ${this.seelike}
-        <i class="mdi mdi-heart text-purple"></i>
-        <i class="mdi mdi-heart-outline text-purple"></i>
         <i class="mdi mdi-heart-broken text-purple"></i>
         <i class="mdi mdi-heart-broken-outline text-purple"></i>
         </div>
@@ -49,11 +48,11 @@ export class Post {
   }
 
   get seelike() {
-    let likes = AppState.likes.filter(like => this.id == AppState.likes.postId)
-    return likes ?
-      `  <i class="mdi mdi-heart text-purple"></i>`
+    let likes = AppState.likes.filter(like => this.id == like.postId)
+    return likes[0] ?
+      ` <p>${this.likes}<i class="mdi mdi-heart text-purple"></i></p>`
       :
-      ` <i class="mdi mdi-heart-outline text-purple"></i>`
+      ` <p>${this.likes}<i onclick="app.LikesController.createLike()" class="mdi mdi-heart-outline text-purple"></i></p>`
   }
   get isImg() {
     if (!this.imgUrl) {
