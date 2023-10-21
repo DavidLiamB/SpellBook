@@ -21,7 +21,8 @@ export class LikesController {
     try {
       await likesService.createLike(postId)
     } catch (error) {
-
+      Pop.error(error)
+      console.error(error)
     }
   }
 }

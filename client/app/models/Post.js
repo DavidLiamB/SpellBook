@@ -57,7 +57,7 @@ export class Post {
     return likes[0] ?
       ` <p>${this.likes}<i class="mdi mdi-heart text-purple"></i></p>`
       :
-      ` <p>${this.likes}<i onclick="app.LikesController.createLike()" class="mdi mdi-heart-outline text-purple"></i></p>`
+      ` <p>${this.likes}<i onclick="app.LikesController.createLike('${this.id}')" class="mdi mdi-heart-outline text-purple"></i></p>`
   }
   get isImg() {
     if (!this.imgUrl) {
