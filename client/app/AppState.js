@@ -17,6 +17,7 @@ class ObservableAppState extends EventEmitter {
 
 
   categories = []
+  likes = []
 
   // Used to load initial data
   init() {

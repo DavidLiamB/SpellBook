@@ -30,7 +30,7 @@ export class Post {
         <div class="d-flex justify-content-between">
         
         <div>
-        
+        ${this.seelike}
         <i class="mdi mdi-heart text-purple"></i>
         <i class="mdi mdi-heart-outline text-purple"></i>
         <i class="mdi mdi-heart-broken text-purple"></i>
@@ -46,6 +46,14 @@ export class Post {
       </div>
 
     </div>`
+  }
+
+  get seelike() {
+    let likes = AppState.likes.filter(like => this.id == AppState.likes.postId)
+    return likes ?
+      `  <i class="mdi mdi-heart text-purple"></i>`
+      :
+      ` <i class="mdi mdi-heart-outline text-purple"></i>`
   }
   get isImg() {
     if (!this.imgUrl) {
