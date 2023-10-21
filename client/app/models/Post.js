@@ -17,17 +17,20 @@ export class Post {
   get cardTemplate() {
     return `
     <div class="col-12 post-background p-3 mb-3 d-flex post rounded">
-      <div class="p-2">
-        <img class="profile-img  rounded-circle"
+    <div class="pt-3 fw-bold">
+    <div class="text-center">category</div>
+      <div class="p-2 text-center">
+        <img class="profile-img text-center rounded-circle"
           src="${this.creator?.picture}"
           alt="${this.creator?.name}">
         <p>${this.creator?.name}</p>
       </div>
+      </div>
       <div class="p-2">
-        <h5>${this.postTitle}</h5>
+        <h5 class="fs-2">${this.postTitle}</h5>
       ${this.isImg}
     
-        <p class="small-text">${this.postBody}</p>
+        <p class="small-text fs-3">${this.postBody}</p>
         <div class="d-flex justify-content-between">
         
         <div>
