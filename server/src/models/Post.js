@@ -27,3 +27,9 @@ PostSchema.virtual('likes', {
     foreignField: 'postId',
     ref: 'Like'
 })
+PostSchema.virtual('dislikes', {
+    count: true,
+    localField: '_id',
+    foreignField: 'postId',
+    ref: 'Dislike'
+})

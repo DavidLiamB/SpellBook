@@ -16,7 +16,7 @@ import { AboutView } from "./views/AboutView.js";
 export const router = [
   {
     path: '',
-    controller: [PostsController, LikesController, CommentsController],
+    controller: [PostsController, CommentsController, LikesController],
     // @ts-ignore
     view: null
   },

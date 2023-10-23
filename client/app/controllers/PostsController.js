@@ -30,7 +30,6 @@ export class PostsController {
   constructor() {
     console.log('??????');
     this.getCategories()
-    this.getPosts()
     AppState.on('account', this.getPosts)
     AppState.on('posts', _drawPosts)
     AppState.on('categories', _drawCategory)

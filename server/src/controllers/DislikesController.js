@@ -4,9 +4,9 @@ import { dislikesService } from "../services/DislikesService.js";
 
 export class DislikesController extends BaseController {
     constructor() {
-        super('api/Dislikes')
+        super('api/dislikes')
         this.router
-            // .get('', this.getDislike)
+            .get('', this.getDislike)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createDislike)
             .delete('/:dislikeId', this.destroyDislike)
@@ -16,7 +16,7 @@ export class DislikesController extends BaseController {
             const dislikes = await dislikesService.getDislikes()
             res.send(dislikes)
         } catch (error) {
-
+            next(error)
         }
     }
 

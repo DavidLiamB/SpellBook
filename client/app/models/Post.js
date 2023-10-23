@@ -10,8 +10,11 @@ export class Post {
     this.createdAt = new Date(data.createdAt)
     this.createdAt = data.createdAt
     this.likes = data.likes
+    this.dislikes = data.dislikes
     this.creator = data.creator || null
     this.imgUrl = data.imgUrl || null
+    this.liked = AppState.likes.find(like => this.id == like.postId && like.creatorId == AppState.account?.id) ? true : false
+    this.disliked = AppState.dislikes.find(dislike => this.id == dislike.postId && dislike.creatorId == AppState.account?.id) ? true : false
   }
 
   get cardTemplate() {
@@ -35,6 +38,7 @@ export class Post {
         
         <div>
         ${this.seelike}
+        ${this.seedislike}
         <!-- <i class="mdi mdi-heart-broken"></i>
               <i class="mdi mdi-heart-broken-outline"></i> -->
         </div>
@@ -53,11 +57,16 @@ export class Post {
   }
 
   get seelike() {
-    let likes = AppState.likes.filter(like => this.id == like.postId)
-    return likes[0] ?
-      ` <p>${this.likes}<i class="mdi mdi-heart text-purple"></i></p>`
+    return this.liked ?
+      ` <p>${this.likes}<i onclick="app.LikesController.destroyLike('${this.id}')" class="mdi mdi-heart text-purple"></i></p>`
       :
-      ` <p>${this.likes}<i onclick="app.LikesController.createLike('${this.id}')" class="mdi mdi-heart-outline text-purple"></i></p>`
+      ` <p>${this.likes}<i role="Button" onclick="app.LikesController.createLike('${this.id}')" class="mdi mdi-heart-outline text-purple"></i></p>`
+  }
+  get seedislike() {
+    return this.disliked ?
+      ` <p>${this.dislikes}<i onclick="app.LikesController.destroyDislike('${this.id}')" class="mdi mdi-heart-broken text-purple"></i></p>`
+      :
+      ` <p>${this.dislikes}<i role="Button" onclick="app.LikesController.createDislike('${this.id}')" class="mdi mdi-heart-broken-outline text-purple"></i></p>`
   }
   get isImg() {
     if (!this.imgUrl) {
